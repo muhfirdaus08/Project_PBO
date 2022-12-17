@@ -1,9 +1,9 @@
-public class GameFrame {
+public class Resolution {
 
     private int width;
     private int height;
 
-    public GameFrame(int width, int height) {
+    public Resolution(int width, int height) {
         this.width = width;
         this.height = height;
     }
@@ -23,5 +23,4 @@ public class GameFrame {
     public void setHeight(int height) {
         this.height = height;
     }
-    
 }
