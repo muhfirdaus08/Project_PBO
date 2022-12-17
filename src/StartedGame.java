@@ -54,7 +54,7 @@ public class StartedGame extends Composite {
         this.timer();
 
         this.setLayout(new BorderLayout(0, 0));
-        this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
+        this.setBorder(BorderFactory.createLineBorder(new Color(151, 0, 222), 3));
     }
 
     //Loads GUI sections of this composite.
@@ -121,10 +121,6 @@ public class StartedGame extends Composite {
         this.add(left_bar_section, BorderLayout.LINE_START);
     }
 
-    //Loads tiles which are represented by JButtons and adds them to the composite.
-    //It crops parts of the image properly to set icons of buttons. A button with icon forms tile.
-    //Firstly, position of every button is saved in the order list (index = right position).
-    //Then icons and positions are shuffled.
     private void loadTilesSection() {
         //Tiles container for appropriate tiles centering.
         JPanel tiles_container_section = new JPanel();

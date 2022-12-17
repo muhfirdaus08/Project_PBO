@@ -17,7 +17,7 @@ public class MainMenu extends Composite {
         this.exit_button = null;
 
         this.setLayout(new BorderLayout(5, 5));
-        this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
+        this.setBorder(BorderFactory.createLineBorder(new Color(151, 0, 222), 3));
     }
 
     //Loads GUI sections of this composite.

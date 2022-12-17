@@ -48,7 +48,7 @@ public class Options extends Composite {
         this.start_button.setBackground(new Color(151, 0, 222));
 
         this.setLayout(new BorderLayout(5, 5));
-        this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
+        this.setBorder(BorderFactory.createLineBorder(new Color(151, 0, 222), 3));
     }
 
     //Loads GUI sections of this composite.
@@ -96,7 +96,7 @@ public class Options extends Composite {
         // this.name_text_field.setMaximumSize(new Dimension(90, 25));
 
         //Number of blocks option
-        JLabel jumlah_kotak_label = new JLabel("Amount of blocks:");
+        JLabel jumlah_kotak_label = new JLabel("Jumlah Kotak:");
         jumlah_kotak_label.setLabelFor(this.jumlah_kotak_field);
         jumlah_kotak_label.setForeground(new Color(151, 0, 222));
         jumlah_kotak_label.setFont(options_font);
@@ -122,7 +122,7 @@ public class Options extends Composite {
         });
 
         //Scale option label
-        JLabel scale_label = new JLabel("Scale:");
+        JLabel scale_label = new JLabel("Skala:");
         scale_label.setLabelFor(this.scale_combo_box);
         scale_label.setForeground(new Color(151, 0, 222));
         scale_label.setFont(options_font);
@@ -187,7 +187,7 @@ public class Options extends Composite {
     //Initializes a new game with options provided by the user and starts it.
     private void startGame() {
         if(this.jumlah_kotak == null) {
-            this.message.setText("No value for number of blocks...");
+            this.message.setText("Jumlah kotak kosong");
         }
         else {
             BufferedImage adjusted_img = this.adjustFile(Game.img);
@@ -201,10 +201,6 @@ public class Options extends Composite {
     }
 
     //Adjusts the image loaded by the user.
-    //It is scaled to square form.
-    //If it is bigger than OS's windows area it is resized.
-    //It is scaled along the user's criteria.
-    //It is cropped if it gives remainder when dividing it's length by number of blocks choosen by the user.
     private BufferedImage adjustFile(File file) {
         //Used to store file as an image and process it.
         BufferedImage img = null;
@@ -318,10 +314,10 @@ public class Options extends Composite {
             if(!text.isEmpty()) {
                 Integer jumlah_kotak = Integer.parseInt(text);
                 if(jumlah_kotak < 2) {
-                    this.message.setText("Amount should be more than 2...");
+                    this.message.setText("Jumlah kotak minimal 2");
                 }
                 else if(jumlah_kotak > 30) {
-                    this.message.setText("Amount should be less than 31...");
+                    this.message.setText("Jumlah kotak maksimal 31");
                 }
                 else {
                     this.jumlah_kotak = jumlah_kotak;
@@ -330,7 +326,7 @@ public class Options extends Composite {
         } catch (BadLocationException e) {
             e.printStackTrace();
         } catch (NumberFormatException e) {
-            this.message.setText("Wrong value for number of blocks...");
+            this.message.setText("Bukan sebuah angka");
         }
     }
 
